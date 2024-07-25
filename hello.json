@@ -1,0 +1,34 @@
+[
+    {
+        "Cricket Bat" : 10,
+        "Cricket Ball" : 10,
+        "Stumps" : 10,
+        "Bails" : 10
+    },
+    {
+        "Badminton Racket" : 10,
+        "Shuttlecock" : 10
+    }
+],
+[
+    {
+        "Name" : "Puneet Dhankar",
+        "Enrollment Number" : "23CS002726",
+        "Programme" : "Btech",
+        "Year" : "2023",
+        "Time Wanted" : "24:00",
+        "items requested" : {
+            "Badminton Racket" : 2,
+            "Shuttlecock" : 2,
+        },
+        "status" : "pending",
+    },
+    {
+
+    }
+
+],
+
+[
+    
+]
