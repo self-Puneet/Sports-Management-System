@@ -1,0 +1,35 @@
+// game document
+{
+    "cricket": ["cricket bat", "cricket ball", "strumps", "bails"],
+    "badminton" : ["badminton racket", "shuttlecock"],
+    "volleyball" : ["volleyball"],
+    "tennis" : ["tennis racket", "tennis ball"],
+    "basketball" : ["basketball"],
+    "football" : ["football"]
+}
+
+
+
+
+{
+    CREDENTIALS
+    {
+        SPSU DATASET
+    }
+
+    {
+        SIGNUP DATASET
+    }
+}
+{
+    REQUESTS
+}
+{
+    ADMIN PERMS
+    {
+        GAME CHOICES AND EQUIPMENTS
+    }
+    {
+        
+    }
+}
