@@ -34,3 +34,11 @@ print(list(dict.keys())[0])
         data = doc.to_dict()
 
 """
+
+from datetime import datetime
+
+# Get the current time
+current_time = datetime.now()
+
+# Print the current time
+print("Current Time:", current_time)
