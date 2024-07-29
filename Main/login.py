@@ -104,6 +104,8 @@ class Login:
 class Request:
     email = None
     equipment_dict = None
+    equipment_lim = None
+    time_lim = None
     
     def __init(self, e_mail):
         email = e_mail
@@ -111,6 +113,13 @@ class Request:
         doc_ref = db.collection('admin_perms').document('game_database')
         doc = doc_ref.get()
         self.equipment_dict = doc.to_dict()
+
+        doc_ref = db.collection('admin_perms').document('equipments_limitation_database')
+        self.equipment_lim = doc.to_dict()
+
+        doc_ref = db.collection('admin_perms').document('time_limitation_database')
+        self.time_lim = doc.to_dict()
+        
         self.game_choice()
 
     def game_choice(self):
@@ -133,11 +142,33 @@ class Request:
 
         print("Give quantity of each item:")
         quantity = []
-        for i in self.equipment_dict[game]:
-            quantity = int(input(f"\t{i} : "))
-            quantity.append(quantity)
+
+        for i in range(0, len(self.equipment_dict[game])):
+            
+            while True:
+
+                quantity = int(input(f"\t{self.equipment_dict[game][i]} : "))
+                
+                if quantity > self.equipment_lim[game][i][1]:
+                    print(f"out of stock. TRY again later or reduce quantity.")
+                
+                else:            
+                    if quantity > self.equipment_lim[game][i][0]:
+                        print(f"maximum issueable {self.equipment_dict[game][i]} at a time are {self.equipment_lim[game][i][0]}. TRY Again !!")
+                    else:
+                        quantity.append(quantity)
+                        break
         
         time = input("Time duration for issue : ")
+        
+        while True:
+                 
+            if time > self.time_lim[game]:
+                print(f"issueing time could not exceed {self.time_lim[game]}. TRY again !!")
+                time = input("Time duration for issue : ")
+
+            else:
+                break
 
         self.writting_request ([game_id, quantity], time)
     
@@ -148,5 +179,7 @@ class Request:
         doc = doc_ref.get()
         data = {self.email : [request_id, status, time]}
         doc_ref.update(data)
+
+        print("request is send to our server successfully !!")
 
         

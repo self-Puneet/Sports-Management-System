@@ -8,6 +8,27 @@
     "football" : ["football"]
 }
 
+// equipment issuing limitations
+{
+    "cricket": [[4, 20], [2, 20], [3, 18], [2, 20]],
+    "badminton" : [[4, 20], [2, 20]],
+    "volleyball" : [2, 20],
+    "tennis" : [[4, 20], [2, 20]],
+    "basketball" : [2, 20],
+    "football" : [[2,20]]
+}
+
+// time limitation
+
+{
+    "cricket": 24,
+    "badminton" : 24,
+    "volleyball" : 24,
+    "tennis" : 24,
+    "basketball" : 24,
+    "football" : 24
+}
+
 
 
 
@@ -30,6 +51,6 @@
         GAME CHOICES AND EQUIPMENTS
     }
     {
-        
+        EQUIPMENTS ISSUEING LIMITATION
     }
 }
