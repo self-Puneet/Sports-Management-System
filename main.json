@@ -1,0 +1,19 @@
+{   
+    "inventory": 
+    {
+        "cricket" : {
+            "cricket bat" : 20,
+            "cricket  ball" : 20,
+            "strump" : 18,
+            "bails" : 20
+        },
+        "badminton" : {
+            "badminton racket" : 20,
+            "shuttlecock" : 20
+        }
+    },    
+   "request" :
+   {
+        
+   }
+}
