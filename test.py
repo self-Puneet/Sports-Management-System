@@ -27,11 +27,7 @@
 # print(doc_data)
 
 
-
-class Firestore:
-
-    @staticmethod
-    def printh(string):
-        print(string)
-
-Firestore.printh("hello")
+import re
+email = "puneet.btech2023@spsu.ac.in"
+string = re.search(r"^(.*?)@", email).group(1)
+print(string)

@@ -58,9 +58,10 @@ class SignUp:
         if email in erp_data_dict.keys():
 
             phone_no = erp_data_dict[email]
-            [name, temp] = re.search(r"^(.*?)@", email).split(".")
-            course = re.search('r"^(.*?)(?=\d)"', temp).group(1)
-        
+            temp = re.search(r"^(.*?)@", email).group(1)
+            name, temp = temp.split(".")
+            course = re.search(r"^(.*?)(?=\d)", temp).group(1)        
+            
             data = {
                 "email" : email,
                 "name" : name,
@@ -112,4 +113,10 @@ class User:
 
     def request(self):
 
+
         pass
+
+
+if __name__ == "__main__":
+    Obj = SignUp()
+    Obj.signup()
