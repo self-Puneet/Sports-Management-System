@@ -42,6 +42,16 @@ class Firestore:
             doc_data[doc.id] = doc.to_dict()
         
         return doc_data
+    
+    @staticmethod
+    def check_document_existence(collection, document):
+
+        doc_ref = db.collection(collection).document(document)
+        doc = doc_ref.get()
+        if doc.exists:
+            return True
+        else:
+            return False
 
 # ======================================= class for SignUP and login of user ====================================
 
@@ -70,7 +80,7 @@ class SignUp:
                 "role" : "user"
             }
 
-            Firestore.write_document("userRoles", str(uuid.uuid4()), data)
+            Firestore.write_document("userRoles", email, data)
 
         # if provided email is not present in erp
         else:
@@ -81,14 +91,16 @@ class SignUp:
     def login(self):
 
         while True:
+            
             email = input("Enter your SPSU email id : ")
-            userRoles_dict = Firestore.read_collection("userRoles")
-
-            for i in userRoles_dict.keys():
-                if email == userRoles_dict[i]["email"]:
-                    return userRoles_dict[i]
+            
+            if Firestore.check_document_existence("userRoles", email):
+                userRoles_dict = Firestore.read_document("userRoles", email)
+                return userRoles_dict
+            
+            else:
+                print("Wrong Email. TRY Again !!")
                 
-            print("Wrong Email. TRY Again !!")
     
 # ======================================= class for user realated functionality ====================================
 
@@ -96,27 +108,27 @@ class User:
 
     def __init__(self, email):
 
-        print("1        Check status of request")
-        print("2        Send a Request")
+        self.email = email
 
-        choice = int(input("Enter "))
+        print("Catelog : ")
+        print("\t1      Spectate the Requests")
+        print("\t2      Issue a Request")
 
-        if choice == 1:
-            self.check_request()
+        choice = int(input("Enter your choice according to catelog : "))
+        
+        while True:
 
-        elif choice == 2:
-            self.request()
+            if choice == 1:
+                self.spectate_request()
+                break
 
-    def check_request(self):
+            elif choice == 2:
+                self.issue_request()
+                break
 
-        pass
+            else:
+                print("Wrong choice. TRY Again !!!")
 
-    def request(self):
+    def spectate_request(self):
 
-
-        pass
-
-
-if __name__ == "__main__":
-    Obj = SignUp()
-    Obj.signup()
+        
