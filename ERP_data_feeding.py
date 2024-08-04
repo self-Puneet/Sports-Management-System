@@ -46,4 +46,5 @@ for i in range(0, len(students_list)):                     # loop for each stude
     
     for j in range(0, len(students_list[i])):               # loop for each field of each student
         dict_data[attribute_list[j]] = students_list[i][j]
-    db.collection("preErp").document(dict_data["email"]).set(dict_data)
+    
+    db.collection("preErp").document(dict_data["email"]).set(dict_data)  # making a new document for each student
