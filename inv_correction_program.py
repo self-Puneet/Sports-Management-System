@@ -3,7 +3,7 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 
 # connecting to firebase.
-key = r"C:\Users\punee\Downloads\sports-management-database-firebase-adminsdk-j2q72-a620bd1e37.json"
+key = r"C:\Users\punee\Downloads\login-lakshh-firebase-adminsdk-hu91e-5712af1dcf.json"
 cred = credentials.Certificate(key)
 firebase_admin.initialize_app(cred)
 db = firestore.client()
@@ -54,7 +54,7 @@ dict = {
         "i_lawn_tennis_racquet" : 6,
         "i_lawn_tennis_ball" : 6
     },
-    "miscellaneous" : {
+    "other" : {
         "i_cones" : 20,
         "i_shot_put" : 2,
         "i_yoga_mat" : 10,
@@ -75,4 +75,4 @@ dict = {
 }
 
 for i in dict:
-    db.collection("preErp").document(i).set(dict[i])   
+    db.collection("inventory").document(i).set(dict[i])   

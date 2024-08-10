@@ -5,7 +5,7 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 from google.cloud.firestore_v1 import DELETE_FIELD
 
-key = r"C:\Users\punee\Downloads\sports-management-database-firebase-adminsdk-j2q72-a620bd1e37.json"
+key = r"C:\Users\punee\Downloads\login-lakshh-firebase-adminsdk-hu91e-5712af1dcf.json"
 cred = credentials.Certificate(key)
 firebase_admin.initialize_app(cred)
 db = firestore.client()
